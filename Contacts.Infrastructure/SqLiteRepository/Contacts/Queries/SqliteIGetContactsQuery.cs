@@ -33,7 +33,7 @@ public class SqliteGetContactsQuery : IGetContactsQuery
                     });
                 });
 
-                return new GetContactsResultModel(Success: true, Result: result);
+                return new GetContactsResultModel(Success: true, Contacts: result);
             }
             catch (Exception ex)
             {
