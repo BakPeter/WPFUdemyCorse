@@ -6,6 +6,12 @@
         xmlns:local="clr-namespace:Calculator.App"
         mc:Ignorable="d"
         Title="Calculator" Height="525" Width="350">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="NumbersColor" Color="#999999"/>
+        <SolidColorBrush x:Key="OperatorsColor" Color="DarkKhaki"/>
+    </Window.Resources>
+
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -62,18 +68,21 @@
             Grid.Column="0"
             Content="7"
             Margin="5" 
+            Background="{StaticResource NumbersColor}"
             Click="Dig7Button_Click"/>
         <Button 
             Grid.Row="2"
             Grid.Column="1"
             Content="8"
             Margin="5" 
+            Background="{StaticResource NumbersColor}"
             Click="Dig8Button_Click"/>
         <Button 
             Grid.Row="2"
             Grid.Column="2"
             Content="9"
-            Margin="5" 
+            Margin="5"
+            Background="{StaticResource NumbersColor}"
             Click="Dig9Button_Click"/>
         <Button 
             x:Name="MultiplierButton"
@@ -81,24 +90,28 @@
             Grid.Column="3"
             Content="*"
             Margin="5"
+            Background="{StaticResource  OperatorsColor}"
             Click="OperationButton_Click"/>
         <Button 
             Grid.Row="3"
             Grid.Column="0"
             Content="4"
             Margin="5" 
+            Background="{StaticResource NumbersColor}"
             Click="Dig4Button_Click"/>
         <Button 
             Grid.Row="3"
             Grid.Column="1"
             Content="5"
             Margin="5" 
+            Background="{StaticResource NumbersColor}"
             Click="Dig5Button_Click"/>
         <Button 
             Grid.Row="3"
             Grid.Column="2"
             Content="6"
             Margin="5"
+            Background="{StaticResource NumbersColor}"
             Click="Dig6Button_Click"/>
         <Button 
             x:Name="SubtractionButton"
@@ -106,24 +119,28 @@
             Grid.Column="3"
             Content="-"
             Margin="5"
+            Background="{StaticResource  OperatorsColor}"
             Click="OperationButton_Click"/>
         <Button 
             Grid.Row="4"
             Grid.Column="0"
             Content="1"
             Margin="5"
+            Background="{StaticResource NumbersColor}"
             Click="Dig1Button_Click"/>
         <Button 
             Grid.Row="4"
             Grid.Column="1"
             Content="2"
             Margin="5"
+            Background="{StaticResource NumbersColor}"
             Click="Dig2Button_Click"/>
         <Button 
             Grid.Row="4"
             Grid.Column="2"
             Content="3"
             Margin="5"
+            Background="{StaticResource NumbersColor}"
             Click="Dig3Button_Click"/>
         <Button 
             x:Name="AdditionButton"
@@ -131,6 +148,7 @@
             Grid.Column="3"
             Content="+"
             Margin="5"
+            Background="{StaticResource  OperatorsColor}"
             Click="OperationButton_Click"/>
         <Button 
             Grid.Row="5"
@@ -138,18 +156,21 @@
             Grid.ColumnSpan="2"
             Content="0"
             Margin="5"
+            Background="{StaticResource NumbersColor}"
             Click="Dig0Button_Click"/>
         <Button 
             Grid.Row="5"
             Grid.Column="2"
             Content="."
             Margin="5" 
+            Background="{StaticResource NumbersColor}"
             Click="DotButton_Click"/>
         <Button 
             Grid.Row="5"
             Grid.Column="3"
             Content="="
             Margin="5"
+            Background="{StaticResource  OperatorsColor}"
             Click="EqualsButton_OnClick"
             />
     </Grid>

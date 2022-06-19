@@ -1,7 +1,8 @@
-﻿using Calculator.Core.Model;
+﻿using Calculator.Core.Commands.Interfaces;
+using Calculator.Core.Model;
 
-namespace Calculator.Core.Commands.Interfaces;
-public class SubtractCommand: ISubtractCommand
+namespace Calculator.Core.Commands;
+public class SubtractCommand : ISubtractCommand
 {
     public ResultModel Subtract(double value1, double value2)
     {
