@@ -1,4 +1,5 @@
-﻿using Calculator.Core.Commands.Interfaces;
+﻿using Calculator.Core.Commands;
+using Calculator.Core.Commands.Interfaces;
 using Calculator.Core.Services;
 using Calculator.Core.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,5 +12,6 @@ public static class ServicesCollectionExtension
     {
         services.AddSingleton<ICalculatorService, CalculatorService>();
         services.AddSingleton<IAddCommand, AddCommand>();
+        services.AddSingleton<ISubtractCommand, SubtractCommand>();
     }
 }

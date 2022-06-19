@@ -99,10 +99,9 @@ public partial class MainWindow : Window
 
     private void OperationButton_Click(object sender, RoutedEventArgs e)
     {
-        var mathOperation = GetMathOperation(sender);
-
         if (_mathOperations is MathOperations.NotDefined)
         {
+            _mathOperations = GetMathOperation(sender);
             _lastNumber = ResultLabel.Content.ToString() ?? string.Empty;
             ResultLabel.Content = "0";
         }
@@ -110,8 +109,6 @@ public partial class MainWindow : Window
         {
             SendCalculationRequestToService();
         }
-
-        _mathOperations = mathOperation;
     }
 
     private void SendCalculationRequestToService()
@@ -125,7 +122,7 @@ public partial class MainWindow : Window
             {
                 ShowError(result.ErrorMessage);
             }
-            
+
             InitMembers();
             ResultLabel.Content = result.Result;
         }

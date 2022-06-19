@@ -1,6 +1,7 @@
-﻿using Calculator.Core.Model;
+﻿using Calculator.Core.Commands.Interfaces;
+using Calculator.Core.Model;
 
-namespace Calculator.Core.Commands.Interfaces;
+namespace Calculator.Core.Commands;
 
 public class AddCommand : IAddCommand
 {
