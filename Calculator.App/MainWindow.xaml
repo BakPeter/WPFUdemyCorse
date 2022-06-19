@@ -48,13 +48,15 @@
             Content="%"
             Margin="5,5,6,0" 
             Height="65"
-            VerticalAlignment="Top" Click="OperationButton_Click"/>
+            VerticalAlignment="Top" 
+            Click="OperationButton_Click"/>
         <Button 
             x:Name="DivisionButton"
             Grid.Row="1"
             Grid.Column="3"
             Content="/"
-            Margin="5"/>
+            Margin="5"
+            Click="OperationButton_Click"/>
         <Button 
             Grid.Row="2"
             Grid.Column="0"
@@ -78,7 +80,8 @@
             Grid.Row="2"
             Grid.Column="3"
             Content="*"
-            Margin="5"/>
+            Margin="5"
+            Click="OperationButton_Click"/>
         <Button 
             Grid.Row="3"
             Grid.Column="0"
@@ -102,7 +105,8 @@
             Grid.Row="3"
             Grid.Column="3"
             Content="-"
-            Margin="5"/>
+            Margin="5"
+            Click="OperationButton_Click"/>
         <Button 
             Grid.Row="4"
             Grid.Column="0"
@@ -126,7 +130,8 @@
             Grid.Row="4"
             Grid.Column="3"
             Content="+"
-            Margin="5"/>
+            Margin="5"
+            Click="OperationButton_Click"/>
         <Button 
             Grid.Row="5"
             Grid.Column="0"
@@ -144,6 +149,8 @@
             Grid.Row="5"
             Grid.Column="3"
             Content="="
-            Margin="5" Click="Dig7Button_Click"/>
+            Margin="5"
+            Click="EqualsButton_OnClick"
+            />
     </Grid>
 </Window>

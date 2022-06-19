@@ -20,7 +20,7 @@ public class CalculatorService : ICalculatorService
         return calculateOperationModel.MathOperations switch
         {
             MathOperations.Add => _addCommand.Add(calculateOperationModel.Value1, calculateOperationModel.Value2),
-            _ => new ResultModel(OperationSuccess: false, ErrorMessage: "Math Operation not implemented")
+            _ => new ResultModel(Success: false, ErrorMessage: "Math Operation not implemented")
         };
     }
 }

@@ -1,7 +1,5 @@
 ﻿using System.Windows;
-using Calculator.Core.Commands.Interfaces;
-using Calculator.Core.Services;
-using Calculator.Core.Services.Interfaces;
+using Calculator.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -24,8 +22,7 @@ public partial class App : Application
     private void ConfigureService(IServiceCollection services)
     {
         services.AddSingleton<MainWindow>();
-        services.AddTransient<ICalculatorService, CalculatorService>();
-        services.AddTransient<IAddCommand, AddCommand>();
+        services.AddCalculatorServices();
     }
     protected override async void OnStartup(StartupEventArgs e)
     {

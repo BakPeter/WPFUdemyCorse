@@ -3,6 +3,7 @@ using System.Net.WebSockets;
 using System.Windows;
 using System.Windows.Controls;
 using Calculator.Core.Enums;
+using Calculator.Core.Model;
 using Calculator.Core.Services;
 using Calculator.Core.Services.Interfaces;
 
@@ -98,22 +99,53 @@ public partial class MainWindow : Window
 
     private void OperationButton_Click(object sender, RoutedEventArgs e)
     {
+        var mathOperation = GetMathOperation(sender);
+
         if (_mathOperations is MathOperations.NotDefined)
         {
-            _mathOperations = GetMathOperation(sender);
-            _lastNumber = ResultLabel.Content.ToString() ?? "";
-            ResultLabel.Content = "";
+            _lastNumber = ResultLabel.Content.ToString() ?? string.Empty;
+            ResultLabel.Content = "0";
         }
         else
         {
             SendCalculationRequestToService();
-            //send calculation request to service
         }
+
+        _mathOperations = mathOperation;
     }
 
     private void SendCalculationRequestToService()
     {
-        //TODO - SendCalculationRequestToService
+        try
+        {
+            var value1 = double.Parse(_lastNumber);
+            var value2 = double.Parse(ResultLabel.Content.ToString() ?? string.Empty);
+            var result = _calculatorService.Calculate(new CalculateOperationModel(value1, value2, _mathOperations));
+            if (result.Success is false)
+            {
+                ShowError(result.ErrorMessage);
+            }
+            
+            InitMembers();
+            ResultLabel.Content = result.Result;
+        }
+        catch (Exception e)
+        {
+            ShowError(e.Message);
+        }
+    }
+
+    private void ShowError(string error)
+    {
+        MessageBox.Show(error, "Error Occurred", MessageBoxButton.OK, MessageBoxImage.Error);
+        InitMembers();
+    }
+
+    private void InitMembers()
+    {
+        _lastNumber = string.Empty;
+        ResultLabel.Content = "0";
+        _mathOperations = MathOperations.NotDefined;
     }
 
     private MathOperations GetMathOperation(object sender)
@@ -129,5 +161,22 @@ public partial class MainWindow : Window
             "PercentageButton" => MathOperations.Percentage,
             _ => MathOperations.NotDefined
         };
+    }
+
+    private void EqualsButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            if (_mathOperations is MathOperations.NotDefined)
+                throw new ArgumentException($"Math operation is {_mathOperations}");
+            if (_lastNumber.Equals(""))
+                throw new ArgumentException($"Value1 is {_lastNumber}");
+
+            SendCalculationRequestToService();
+        }
+        catch (Exception exception)
+        {
+            ShowError(exception.Message);
+        }
     }
 }
