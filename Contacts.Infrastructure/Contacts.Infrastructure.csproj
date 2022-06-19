@@ -15,8 +15,4 @@
     <ProjectReference Include="..\Contacts.Core\Contacts.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="SqLiteRepository\Contacts\Queries\" />
-  </ItemGroup>
-
 </Project>

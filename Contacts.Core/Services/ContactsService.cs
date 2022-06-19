@@ -12,6 +12,8 @@ public class ContactsService : IContactsService
         _contactsRepository = contactsRepository;
     }
 
-    public Task<SaveContactResultModel> SaveContact(ContactModel contactModel)
-        => _contactsRepository.SaveContact(contactModel);
+    public async Task<GetContactsResultModel> GetContactsAsync()
+        => await _contactsRepository.GetContactsAsync();
+    public async Task<SaveContactResultModel> SaveContactAsync(ContactModel contactModel)
+        => await _contactsRepository.SaveContactAsync(contactModel);
 }

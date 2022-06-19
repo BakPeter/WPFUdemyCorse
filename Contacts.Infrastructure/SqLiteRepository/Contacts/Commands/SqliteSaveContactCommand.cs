@@ -3,7 +3,7 @@ using Contacts.Core.Repository.Contacts.Commands;
 using Contacts.Infrastructure.SqLiteRepository.Entities;
 
 namespace Contacts.Infrastructure.SqLiteRepository.Contacts.Commands;
-internal class SqliteSaveContactCommand : ISaveContactCommand
+public class SqliteSaveContactCommand : ISaveContactCommand
 {
     private readonly SqLiteConnectionBuilder _connectionBuilder;
 
@@ -18,7 +18,7 @@ internal class SqliteSaveContactCommand : ISaveContactCommand
         {
             try
             {
-                using var connection = _connectionBuilder.GetConnection();
+                using var connection = _connectionBuilder.GetConnection<ContactEntity>();
                 var contactEntity = new ContactEntity
                 {
                     Name = contactModel.Name,
@@ -26,7 +26,6 @@ internal class SqliteSaveContactCommand : ISaveContactCommand
                     Phone = contactModel.Phone,
                 };
 
-                connection.CreateTable<ContactEntity>();
                 var isertionResult = connection.Insert(contactEntity);
 
                 if (isertionResult == 0)

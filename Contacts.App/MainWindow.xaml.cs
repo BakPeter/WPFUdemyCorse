@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using Contacts.App.Views;
 using Contacts.Core.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +12,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
+
 
     private void AddNewContactButton_OnClick(object sender, RoutedEventArgs e)
     {

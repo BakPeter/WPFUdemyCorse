@@ -4,5 +4,6 @@ namespace Contacts.Core.Repository;
 
 public interface IContactsRepository
 {
-    Task<SaveContactResultModel> SaveContact(ContactModel contactModel);
+    Task<SaveContactResultModel> SaveContactAsync(ContactModel contactModel);
+    Task<GetContactsResultModel> GetContactsAsync();
 }

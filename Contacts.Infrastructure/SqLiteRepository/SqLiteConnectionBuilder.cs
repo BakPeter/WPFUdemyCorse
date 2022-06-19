@@ -1,7 +1,8 @@
-﻿using SQLite;
+﻿using Contacts.Infrastructure.SqLiteRepository.Entities;
+using SQLite;
 
 namespace Contacts.Infrastructure.SqLiteRepository;
-internal class SqLiteConnectionBuilder
+public class SqLiteConnectionBuilder
 {
     private readonly SqLiteConfigurations _configurations;
 
@@ -10,12 +11,16 @@ internal class SqLiteConnectionBuilder
         _configurations = configurations;
     }
 
-    public SQLiteConnection GetConnection()
+    public SQLiteConnection GetConnection<TEntity>()
     {
         var databaseName = _configurations.DbName;
         var folderPath = _configurations.FolderPath;
         var databasePath = System.IO.Path.Combine(folderPath, databaseName);
 
-        return new SQLiteConnection(databasePath);
+        var connection = new SQLiteConnection(databasePath);
+
+        connection.CreateTable<ContactEntity>();
+
+        return connection;
     }
 }
