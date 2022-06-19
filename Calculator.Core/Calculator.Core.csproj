@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\Interfaces\" />
     <Folder Include="Enums\" />
   </ItemGroup>
 

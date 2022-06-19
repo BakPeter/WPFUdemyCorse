@@ -7,18 +7,19 @@ namespace Calculator.Core.Services;
 
 public class CalculatorService : ICalculatorService
 {
-    private readonly IAdditionCommand _additionCommand;
+    private readonly IAddCommand _addCommand;
 
-    public CalculatorService()
+    public CalculatorService(IAddCommand addCommand)
     {
-        _additionCommand = new AdditionCommand();
+        _addCommand = addCommand;
+        //_addCommand = new AddCommand();
     }
 
     public ResultModel Calculate(CalculateOperationModel calculateOperationModel)
     {
         return calculateOperationModel.MathOperations switch
         {
-            MathOperations.Add => _additionCommand.Add(calculateOperationModel.Value1, calculateOperationModel.Value2);
+            MathOperations.Add => _addCommand.Add(calculateOperationModel.Value1, calculateOperationModel.Value2),
             _ => new ResultModel(OperationSuccess: false, ErrorMessage: "Math Operation not implemented")
         };
     }

@@ -15,10 +15,10 @@ public partial class MainWindow : Window
 
     private readonly ICalculatorService _calculatorService;
 
-    public MainWindow()
+    public MainWindow(ICalculatorService calculatorService)
     {
         InitializeComponent();
-        _calculatorService = new CalculatorService();
+        _calculatorService = calculatorService;
     }
     private void Dig0Button_Click(object sender, RoutedEventArgs e)
     {

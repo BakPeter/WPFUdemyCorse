@@ -2,7 +2,7 @@
 
 namespace Calculator.Core.Commands.Interfaces;
 
-public class AdditionCommand : IAdditionCommand
+public class AddCommand : IAddCommand
 {
     public ResultModel Add(double value1, double value2)
     {
