@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Contacts.App.Views;
 using Contacts.Core.Services.Interfaces;
 using Contacts.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
