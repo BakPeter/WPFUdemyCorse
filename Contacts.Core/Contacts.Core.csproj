@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Repository\Contacts\Commands\" />
+    <Folder Include="Repository\Contacts\Queries\" />
     <Folder Include="Services\Interfaces\" />
   </ItemGroup>
 

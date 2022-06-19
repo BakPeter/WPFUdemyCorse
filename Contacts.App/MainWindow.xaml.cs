@@ -1,7 +1,7 @@
-﻿using System;
-using System.Diagnostics;
-using System.Windows;
+﻿using System.Windows;
 using Contacts.App.Views;
+using Contacts.Core.Services.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Contacts.App;
 
@@ -22,7 +22,8 @@ public partial class MainWindow : Window
 
         //if (result is MessageBoxResult.No) return;
 
-        var newContactWindow = new NewContactWindow();
+        var newContactWindow = new NewContactWindow(
+            App.AppHost!.Services.GetRequiredService<IContactsService>());
         newContactWindow.ShowDialog();
     }
 }

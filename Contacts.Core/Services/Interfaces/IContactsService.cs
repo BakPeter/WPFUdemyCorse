@@ -1,6 +1,8 @@
-﻿namespace Contacts.Core.Services.Interfaces;
+﻿using Contacts.Core.Model;
+
+namespace Contacts.Core.Services.Interfaces;
 
 public interface IContactsService
 {
-    void F();
+    Task<SaveContactResultModel> SaveContact(ContactModel contactModel);
 }

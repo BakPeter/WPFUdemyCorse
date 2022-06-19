@@ -8,10 +8,15 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Contacts.Core\Contacts.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="SqLiteRepository\Contacts\Queries\" />
   </ItemGroup>
 
 </Project>

@@ -1,10 +1,17 @@
-﻿using Contacts.Core.Services.Interfaces;
+﻿using Contacts.Core.Model;
+using Contacts.Core.Repository;
+using Contacts.Core.Services.Interfaces;
 
 namespace Contacts.Core.Services;
 public class ContactsService : IContactsService
 {
-    public void F()
+    private readonly IContactsRepository _contactsRepository;
+
+    public ContactsService(IContactsRepository contactsRepository)
     {
-        throw new NotImplementedException();
+        _contactsRepository = contactsRepository;
     }
+
+    public Task<SaveContactResultModel> SaveContact(ContactModel contactModel)
+        => _contactsRepository.SaveContact(contactModel);
 }
