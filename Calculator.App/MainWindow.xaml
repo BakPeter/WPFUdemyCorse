@@ -24,148 +24,131 @@
         </Grid.RowDefinitions>
 
         <Label x:Name="ResultLabel"
-            Grid.Row="0"
-            Grid.Column="0"
-            Content="0"
+               Grid.Row="0"
+               Grid.Column="0"
+               Content="0"
                HorizontalAlignment="Right"
                VerticalAlignment="Bottom"
-               FontSize="60"
                Grid.ColumnSpan="4"/>
         <Button 
             Grid.Row="1"
             Grid.Column="0"
             Content="AC"
-            Margin="5" Click="ACButton_Click"/>
+            Style="{StaticResource AdditionalButtonStyle}"
+            Click="ACButton_Click"/>
         <Button 
             Grid.Row="1"
             Grid.Column="1"
             Content="+/-"
-            Margin="5" 
+            Style="{StaticResource AdditionalButtonStyle}"
             Click="NegativeButton_Click"/>
         <Button 
             x:Name="PercentageButton"
             Grid.Row="1"
             Grid.Column="2"
             Content="%"
-            Margin="5,5,6,0" 
-            Height="65"
-            VerticalAlignment="Top" 
+            Style="{StaticResource AdditionalButtonStyle}"
             Click="OperationButton_Click"/>
         <Button 
             x:Name="DivisionButton"
             Grid.Row="1"
             Grid.Column="3"
             Content="/"
-            Margin="5"
+            Style="{StaticResource OperatorButtonStyle}"
             Click="OperationButton_Click"/>
         <Button 
             Grid.Row="2"
             Grid.Column="0"
             Content="7"
-            Margin="5" 
-            Background="{StaticResource NumbersColor}"
+            Style="{StaticResource NumberButtonStyle}"
             Click="Dig7Button_Click"/>
         <Button 
             Grid.Row="2"
             Grid.Column="1"
             Content="8"
-            Margin="5" 
-            Background="{StaticResource NumbersColor}"
+            Style="{StaticResource NumberButtonStyle}"
             Click="Dig8Button_Click"/>
         <Button 
             Grid.Row="2"
             Grid.Column="2"
             Content="9"
-            Margin="5"
-            Background="{StaticResource NumbersColor}"
+            Style="{StaticResource NumberButtonStyle}"
             Click="Dig9Button_Click"/>
         <Button 
             x:Name="MultiplierButton"
             Grid.Row="2"
             Grid.Column="3"
             Content="*"
-            Margin="5"
-            Background="{StaticResource  OperatorsColor}"
+            Style="{StaticResource OperatorButtonStyle}"
             Click="OperationButton_Click"/>
         <Button 
             Grid.Row="3"
             Grid.Column="0"
             Content="4"
-            Margin="5" 
-            Background="{StaticResource NumbersColor}"
+            Style="{StaticResource NumberButtonStyle}"
             Click="Dig4Button_Click"/>
         <Button 
             Grid.Row="3"
             Grid.Column="1"
             Content="5"
-            Margin="5" 
-            Background="{StaticResource NumbersColor}"
+            Style="{StaticResource NumberButtonStyle}"
             Click="Dig5Button_Click"/>
         <Button 
             Grid.Row="3"
             Grid.Column="2"
             Content="6"
-            Margin="5"
-            Background="{StaticResource NumbersColor}"
+            Style="{StaticResource NumberButtonStyle}"
             Click="Dig6Button_Click"/>
         <Button 
             x:Name="SubtractionButton"
             Grid.Row="3"
             Grid.Column="3"
             Content="-"
-            Margin="5"
-            Background="{StaticResource  OperatorsColor}"
+            Style="{StaticResource OperatorButtonStyle}"
             Click="OperationButton_Click"/>
         <Button 
             Grid.Row="4"
             Grid.Column="0"
             Content="1"
-            Margin="5"
-            Background="{StaticResource NumbersColor}"
+            Style="{StaticResource NumberButtonStyle}"
             Click="Dig1Button_Click"/>
         <Button 
             Grid.Row="4"
             Grid.Column="1"
             Content="2"
-            Margin="5"
-            Background="{StaticResource NumbersColor}"
+            Style="{StaticResource NumberButtonStyle}"
             Click="Dig2Button_Click"/>
         <Button 
             Grid.Row="4"
             Grid.Column="2"
             Content="3"
-            Margin="5"
-            Background="{StaticResource NumbersColor}"
+            Style="{StaticResource NumberButtonStyle}"
             Click="Dig3Button_Click"/>
         <Button 
             x:Name="AdditionButton"
             Grid.Row="4"
             Grid.Column="3"
             Content="+"
-            Margin="5"
-            Background="{StaticResource  OperatorsColor}"
+            Style="{StaticResource OperatorButtonStyle}"
             Click="OperationButton_Click"/>
         <Button 
             Grid.Row="5"
             Grid.Column="0"
             Grid.ColumnSpan="2"
             Content="0"
-            Margin="5"
-            Background="{StaticResource NumbersColor}"
+            Style="{StaticResource NumberButtonStyle}"
             Click="Dig0Button_Click"/>
         <Button 
             Grid.Row="5"
             Grid.Column="2"
             Content="."
-            Margin="5" 
-            Background="{StaticResource NumbersColor}"
+            Style="{StaticResource NumberButtonStyle}"
             Click="DotButton_Click"/>
         <Button 
             Grid.Row="5"
             Grid.Column="3"
             Content="="
-            Margin="5"
-            Background="{StaticResource  OperatorsColor}"
+            Style="{StaticResource OperatorButtonStyle}"
             Click="EqualsButton_OnClick"
             />
     </Grid>
