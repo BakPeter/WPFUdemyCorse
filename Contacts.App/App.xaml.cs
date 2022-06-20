@@ -4,24 +4,21 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using System;
+using Contacts.App.Helpers;
 
 namespace Contacts.App;
 
 public partial class App : Application
 {
-    public static IConfiguration? Config { get; private set; }
-
-    private static IHost? _host;
-    public static IHost? AppHost => _host;
 
     public App()
     {
-        Config = new ConfigurationBuilder()
+        var config = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-        _host = Host.CreateDefaultBuilder()
-            .ConfigureServices((context, services) => ConfigureServices(services))
+        AppHost.Host = Host.CreateDefaultBuilder()
+            .ConfigureServices((context, services) => ConfigureServices(services, config))
             .Build();
 
         //try
@@ -47,16 +44,15 @@ public partial class App : Application
         //}
     }
 
-    private void ConfigureServices(IServiceCollection services)
+    private void ConfigureServices(IServiceCollection services, IConfigurationRoot config)
     {
         services.AddSingleton<MainWindow>();
+        services.AddSingleton(config);
 
-        var dbSettingsSection = Config!.GetSection("DBSettings");
-
+        var dbSettingsSection = config.GetSection("DBSettings");
         var folderPath = dbSettingsSection["FolderPath"];
         if (folderPath.Equals(""))
             folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
         var settings = new Contacts.Core.Configurations.Settings
         {
             DbName = dbSettingsSection["DbName"],
@@ -67,19 +63,19 @@ public partial class App : Application
 
     protected override async void OnStartup(StartupEventArgs e)
     {
-        await _host!.StartAsync();
+        await AppHost.Host.StartAsync();
 
-        //var mainWindow = _host.Services.GetRequiredService<MainWindow>();
-        //mainWindow.Show();
+        var mainWindow = AppHost.Host.Services.GetRequiredService<MainWindow>();
+        mainWindow.Show();
 
         base.OnStartup(e);
     }
 
     protected override async void OnExit(ExitEventArgs e)
     {
-        using (_host)
+        using (AppHost.Host)
         {
-            await _host!.StopAsync();
+            await AppHost.Host.StopAsync();
         }
         base.OnExit(e);
     }
